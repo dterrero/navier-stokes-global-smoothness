@@ -28,7 +28,7 @@ The solution leverages a new functional — the **Coherence Quotient** \( Q(t) \
 
 <h2>Simulations</h2>
 
-<h3>🔍 Coherence Detection: Q(t) vs Classical Diagnostics</h3>
+<h2>✅ Coherence Detection: Q(t) vs Classical Diagnostics</h2>
 
 <p align="center">
   <img src="assets/img/Qt_vs_traditional_diagnostics.png" width="500"/>

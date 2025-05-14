@@ -28,7 +28,7 @@ The solution leverages a new functional — the **Coherence Quotient** \( Q(t) \
 
 <h2>Simulations</h2>
 
-<h2>✅ Coherence Detection: Q(t) vs Classical Diagnostics</h2>
+<h3>✅ Coherence Detection: Q(t) vs Classical Diagnostics</h3>
 
 <p align="center">
   <img src="assets/img/Qt_vs_traditional_diagnostics.png" width="500"/>
@@ -54,7 +54,7 @@ The solution leverages a new functional — the **Coherence Quotient** \( Q(t) \
 
 <hr>
 
-<h2>✅ Coherence Quotient Validation (5000-Step Run)</h2>
+<h3>✅ Coherence Quotient Validation (5000-Step Run)</h3>
 
 <p>The Coherence Quotient <code>Q(t)</code> was tracked over 5000 simulation steps to test long-term spectral regularity. The results confirm the theoretical prediction:</p>
 
@@ -64,7 +64,7 @@ The solution leverages a new functional — the **Coherence Quotient** \( Q(t) \
   <li><strong>Behavior:</strong> Smooth exponential decay — no reversals, no noise, no numerical instability</li>
 </ul>
 
-<h3>Energy and Dissipation Also Behaved Consistently:</h3>
+<p>Energy and Dissipation Also Behaved Consistently:</p>
 
 <ul>
   <li><strong>Final Energy:</strong> <code>≈ 0.00486</code> (decayed smoothly from ~0.5)</li>

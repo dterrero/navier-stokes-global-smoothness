@@ -27,9 +27,9 @@ The solution leverages a new functional — the **Coherence Quotient** \( Q(t) \
 ## Visual Highlights
 
 <p align="center">
-  <img src="data/plots/Q_vs_time.png" width="400"/>
-  <img src="data/plots/spectrum_decay.png" width="400"/>
+  <img src="assets/img/Qt_vs_traditional_diagnostics.png" width="500"/>
 </p>
+
 
 ---
 

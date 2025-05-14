@@ -45,7 +45,7 @@ conda env create -f environment.yml
 conda activate nse
 
 # Run simulation
-python code/simulate_NSE.py
+python code/coherence_decay_vortex2D.py.py
 
 ## Simulations
 ## ✅ Coherence Quotient Validation (5000-Step Run)

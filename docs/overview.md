@@ -1,26 +1,82 @@
-# Overview: Coherence-Based Solution to the Navier–Stokes Millennium Problem
+# Overview: Coherence-Based Regularity for the 3D Navier–Stokes Equations
 
-This project introduces a novel solution framework for the Navier–Stokes global regularity problem on the 3D periodic domain.
+This repository supports the proposed resolution of the [Navier–Stokes Millennium Problem](https://www.claymath.org/millennium-problems/navier%E2%80%93stokes-equation) via a novel **Coherence Decay Framework**. The solution introduces a new functional, the **Coherence Quotient** `Q(t)`, which serves as a spectral misalignment metric, enabling analytical control over regularity in 3D incompressible flow.
 
-The key innovation is the introduction of the **Coherence Quotient** Q(t), which measures spectral misalignment in the velocity field:
+---
 
-Q(t) = ||∇u(x, t) - A(x, t)||²ₗ₂
+## 🔍 Key Concepts
 
-where A(x,t) is a structurally aligned reference derived from a filtered velocity gradient.
+**Coherence Quotient** `Q(t)` is defined as:
 
-## Key Results
+Q(t) = ||∇u(x, t) - A(x, t)||²_L²
 
-- ✅ Global regularity is proven under decay of Q(t).
-- ✅ Energy estimates are closed using coherence-controlled bounds.
-- ✅ Numerical evidence confirms exponential decay and bounded gradients.
 
-## Project Structure
+where `A(x, t)` is a structurally aligned filtered gradient, constructed via a spectral projection onto low-frequency modes (e.g., `|k| ≤ k_c`).
 
-- `coherence_theory.pdf` — Full formal document with theorems, proofs, and simulations.
-- `code/` — Python files to simulate the 3D NSE and compute Q(t).
-- `data/` — Example outputs, plots, and results.
-- `docs/overview.md` — This guide.
+### Why it matters:
+- Tracks the **loss of spectral structure** in the velocity gradient.
+- Offers a **new analytic route** to global smoothness — distinct from vorticity or energy-based criteria.
+- Compatible with spectral simulation frameworks and verified numerically.
 
-## Contact
+---
 
-For questions or collaboration, reach out to dicksonterrero@gmail.com or GitHub profile.
+## 📁 Repository Structure
+
+├── coherence_theory.pdf # Full formal document with theorems and proofs
+├── code/ # Python simulation scripts
+│ ├── simulate_NSE.py
+│ ├── analyze_Q_decay.py
+│ └── compute_spectra.py
+├── data/ # Example datasets and plots
+│ ├── results_N128.h5
+│ └── plots/
+│ ├── Q_vs_time.png
+│ ├── vorticity.gif
+│ └── energy_spectrum.png
+├── docs/
+│ └── overview.md # This file
+├── environment.yml # Reproducible environment (conda)
+└── CITATION.cff # Citation metadata
+
+
+---
+
+## 📈 Simulation Evidence
+
+The framework is validated through simulations of the 3D Navier–Stokes equations under periodic boundary conditions using Fourier spectral methods. Highlights:
+
+- **Resolution**: up to `N = 128³` grid points
+- **Evidence**:
+  - Exponential decay of `Q(t)` across all runs
+  - Bounded velocity gradients `||∇u||`
+  - Structural resilience under vortex stretching and stochastic perturbations
+
+---
+
+## 🧠 Core Mathematical Results
+
+**Theorem 1 (Regularity from Coherence):**  
+If `Q(t)` decays exponentially and the filtered field `A(x, t)` is sufficiently smooth, then the velocity field `u(x, t)` remains globally regular.
+
+**Theorem 2 (Bounded Energy and Gradients):**  
+For any smooth initial data in `H^s`, the energy remains bounded and the norm `||∇u||` remains finite under the coherence decay condition.
+
+These results are formalized and proven in the main document: [`coherence_theory.pdf`](../coherence_theory.pdf).
+
+---
+
+## 🔁 Reproducibility
+
+To run the simulations:
+
+```bash
+# Clone the repository
+git clone https://github.com/YOUR_USERNAME/navier-stokes-global-smoothness.git
+cd navier-stokes-global-smoothness
+
+# Create environment
+conda env create -f environment.yml
+conda activate nse
+
+# Run a simulation
+python code/simulate_NSE.py

@@ -48,6 +48,24 @@ conda activate nse
 python code/coherence_decay_vortex2D.py.py
 
 ## Simulations
+### 🔍 Coherence Detection: Q(t) vs Classical Diagnostics
+
+![Qt vs traditional diagnostics](assets/img/Qt_vs_traditional_diagnostics.png)
+
+This simulation compares how different diagnostics respond to a forced convection event triggered at step 500:
+
+- **Q(t)** — Spectral coherence functional (new)
+- **Kinetic Energy (KE)** — Measures flow intensity
+- **Nusselt Number (Nu)** — Measures heat transport
+
+#### 💡 Interpretation:
+- At **step 500**, Q(t) immediately rises, detecting structural flow coherence.
+- KE and Nu show **delayed or minimal response** during the same period.
+- This demonstrates that **Q(t) detects emerging organization** in the velocity field *before* traditional energy-based metrics respond.
+
+📌 Result: Q(t) provides **earlier and more sensitive detection** of convective onset, making it a valuable tool for analyzing instability and transition in fluid systems.
+
+
 ## ✅ Coherence Quotient Validation (5000-Step Run)
 
 The Coherence Quotient `Q(t)` was tracked over 5000 simulation steps to test long-term spectral regularity. The results confirm the theoretical prediction:

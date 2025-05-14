@@ -50,10 +50,6 @@ python code/coherence_decay_vortex2D.py.py
 ## Simulations
 ### 🔍 Coherence Detection: Q(t) vs Classical Diagnostics
 
-<p align="center">
-  <img src="assets/img/Qt_vs_traditional_diagnostics.png" width="500"/>
-</p>
-
 This simulation compares how different diagnostics respond to a forced convection event triggered at step 500:
 
 - **Q(t)** — Spectral coherence functional (new)

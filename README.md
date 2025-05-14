@@ -39,7 +39,7 @@ The solution leverages a new functional — the **Coherence Quotient** \( Q(t) \
 # Clone repo
 git clone https://github.com/dterrero/navier-stokes-global-smoothness.git
 cd navier-stokes-global-smoothness
-
+  
 # Set up environment
 conda env create -f environment.yml
 conda activate nse

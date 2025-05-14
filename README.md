@@ -37,7 +37,7 @@ The solution leverages a new functional — the **Coherence Quotient** \( Q(t) \
 
 ```bash
 # Clone repo
-git clone https://github.com/YOUR_USERNAME/navier-stokes-global-smoothness.git
+git clone https://github.com/dterrero/navier-stokes-global-smoothness.git
 cd navier-stokes-global-smoothness
 
 # Set up environment

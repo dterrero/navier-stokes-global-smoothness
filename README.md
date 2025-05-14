@@ -77,12 +77,6 @@ The solution leverages a new functional — the **Coherence Quotient** \( Q(t) \
 
 <hr>
 
-<h3>📈 Visual Summary (Optional)</h3>
-
-<p>If you’d like to include the plot:</p>
-
-<pre><code>&lt;img src="data/plots/Q_vs_time_5000.png" alt="Q decay"&gt;</code></pre>
-
 
 ---
 

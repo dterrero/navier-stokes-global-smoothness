@@ -68,7 +68,7 @@ To run the simulations:
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/navier-stokes-global-smoothness.git
+git clone https://github.com/dterrero/navier-stokes-global-smoothness.git
 cd navier-stokes-global-smoothness
 
 # Create environment

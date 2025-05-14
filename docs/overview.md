@@ -22,22 +22,19 @@ where `A(x, t)` is a structurally aligned filtered gradient, constructed via a s
 
 ## 📁 Repository Structure
 
-├── coherence_theory.pdf # Full formal document with theorems and proofs
-├── code/ # Python simulation scripts
-│ ├── simulate_NSE.py
-│ ├── analyze_Q_decay.py
-│ └── compute_spectra.py
-├── data/ # Example datasets and plots
-│ ├── results_N128.h5
-│ └── plots/
-│ ├── Q_vs_time.png
-│ ├── vorticity.gif
-│ └── energy_spectrum.png
-├── docs/
-│ └── overview.md # This file
-├── environment.yml # Reproducible environment (conda)
-└── CITATION.cff # Citation metadata
-
+- `coherence_theory.pdf` — Full formal document with theorems and proofs
+- `code/` — Python simulation scripts:
+  - `simulate_NSE.py`
+  - `analyze_Q_decay.py`
+  - `compute_spectra.py`
+- `data/` — Example datasets and visual results:
+  - `results_N128.h5`
+  - `plots/Q_vs_time.png`
+  - `plots/vorticity.gif`
+  - `plots/energy_spectrum.png`
+- `docs/` — Markdown documentation (includes this `overview.md`)
+- `environment.yml` — Conda environment for reproducing the results
+- `CITATION.cff` — Machine-readable citation metadata
 
 ---
 

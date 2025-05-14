@@ -129,7 +129,7 @@ for step in tqdm(range(n_steps)):
         print(f"Step {step}: KE={KE:.4e}, Nu={Nu[step]:.2f}, ∇·u={div_val:.1e}, Q={Q[step]:.4f}")
 
 # ========== Save Data ==========
-with h5py.File("convection_simulation.h5", "w") as f:
+with h5py.File("coherence_detection.h5", "w") as f:
     f.create_dataset("velocity", data=np.array(saved_u))
     f.create_dataset("temperature", data=np.array(saved_theta))
     f.create_dataset("time_full", data=np.array(time_full))

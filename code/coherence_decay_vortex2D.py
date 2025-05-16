@@ -5,12 +5,12 @@ from tqdm import tqdm
 from scipy.ndimage import gaussian_filter
 
 # ========== Parameters ==========
-N = 128           # Grid resolution (unchanged)
-T = 5000          # Number of time steps (increased from 100)
-dt = 0.005        # Time step size (unchanged)
-nu = 0.01         # Viscosity (unchanged)
-alpha = 0.2       # Filter parameter (unchanged)
-kc = 10           # Cutoff wavenumber (unchanged)
+N = 128
+T = 5000
+dt = 0.005
+nu = 0.01
+alpha = 0.2
+kc = 10
 
 x = np.linspace(-np.pi, np.pi, N)
 y = np.linspace(-np.pi, np.pi, N)
@@ -21,7 +21,7 @@ dx = x[1] - x[0]
 u = np.sin(X) * np.cos(Y) + 0.01 * np.random.randn(N, N)
 v = -np.cos(X) * np.sin(Y) + 0.01 * np.random.randn(N, N)
 
-# ========== Laplacian Function ==========
+# ========== Laplacian ==========
 def laplacian(f, dx):
     return (
         np.roll(f, +1, axis=0) + np.roll(f, -1, axis=0) +
@@ -29,7 +29,7 @@ def laplacian(f, dx):
         4 * f
     ) / dx**2
 
-# ========== HDF5 Output ==========
+# ========== HDF5 Save ==========
 with h5py.File('vortex_data_128.h5', 'w') as hf:
     hf.create_dataset('x', data=x)
     hf.create_dataset('y', data=y)
@@ -39,27 +39,35 @@ with h5py.File('vortex_data_128.h5', 'w') as hf:
     progress = tqdm(total=T, desc='Simulating vortex dynamics')
 
     for step in range(T):
-        # ========== Velocity Gradients ==========
-        ux = np.gradient(u, x, axis=1)
-        uy = np.gradient(u, y, axis=0)
-        grad_sq = ux**2 + uy**2
+        # === Compute Gradients ===
+        ux = np.gradient(u, dx, axis=1)
+        uy = np.gradient(u, dx, axis=0)
 
-        # ========== Filtered Structure Tensor ==========
-        A = gaussian_filter(grad_sq, sigma=alpha * N / kc)
+        # === Filter Each Component ===
+        Ax = gaussian_filter(ux, sigma=alpha * N / kc)
+        Ay = gaussian_filter(uy, sigma=alpha * N / kc)
 
-        # ========== Q and Epsilon ==========
-        Q = np.mean((ux - A)**2 + (uy - A)**2)
+        # === Coherence Quotient Q(t) ===
+        dot = ux * Ax + uy * Ay
+        norm_grad = np.sqrt(ux**2 + uy**2)
+        norm_A = np.sqrt(Ax**2 + Ay**2)
+
+        Q = np.sum(dot) / (np.linalg.norm(norm_grad) * np.linalg.norm(norm_A) + 1e-10)
+
+        # === Dissipation Rate ===
         epsilon = nu * np.mean(ux**2 + uy**2)
+
+        # === Accumulate ∫Q dt ===
         Q_int += Q * dt
 
-        # ========== Energy ==========
+        # === Energy ===
         energy = np.mean(u**2 + v**2)
 
+        # === Logging ===
         if step % 10 == 0:
-            print(f"Step {step:03d} | Q = {Q:.3e} | ∫Q = {Q_int:.3e} | ε = {epsilon:.3e} | "
-                  f"Energy = {energy:.3e} | α·kc = {alpha * kc:.1f}, k_max = {kc * 2:.1f}")
+            print(f"Step {step:04d} | Q = {Q:.4f} | ∫Q = {Q_int:.4e} | ε = {epsilon:.4e} | E = {energy:.4f}")
 
-        # ========== Save to HDF5 ==========
+        # === Save ===
         step_grp = grp.create_group(f'step_{step:04d}')
         step_grp.create_dataset('u', data=u)
         step_grp.create_dataset('v', data=v)
@@ -67,13 +75,13 @@ with h5py.File('vortex_data_128.h5', 'w') as hf:
         step_grp.attrs['epsilon'] = epsilon
         step_grp.attrs['energy'] = energy
 
-        # ========== Nonlinear Terms ==========
-        du_dx = np.gradient(u, x, axis=1)
-        dv_dy = np.gradient(v, y, axis=0)
+        # === Advective Terms ===
+        du_dx = np.gradient(u, dx, axis=1)
+        dv_dy = np.gradient(v, dx, axis=0)
         u_adv = np.clip(u * du_dx, -2, 2)
         v_adv = np.clip(v * dv_dy, -2, 2)
 
-        # ========== Update ==========
+        # === Update ===
         u += dt * (nu * laplacian(u, dx) - u_adv)
         v += dt * (nu * laplacian(v, dx) - v_adv)
 
@@ -81,7 +89,7 @@ with h5py.File('vortex_data_128.h5', 'w') as hf:
 
     progress.close()
 
-# ========== Vorticity Plotting Function ==========
+# ========== Vorticity Plotting ==========
 def plot_vortex(data, mask=False):
     u = data['u']
     v = data['v']
@@ -99,10 +107,10 @@ def plot_vortex(data, mask=False):
     plt.colorbar(label='Vorticity')
     plt.quiver(X[::8, ::8], Y[::8, ::8], u[::8, ::8], v[::8, ::8], color='white')
     plt.title(f'Vortex Structure {"(Filtered)" if mask else "(Unfiltered)"}')
-    # plt.savefig(f'vortex_{"masked" if mask else "unmasked"}.png')
+    plt.savefig(f'vortex_{"masked" if mask else "unmasked"}.png')
     plt.close()
 
-# ========== Final Plotting ==========
+# ========== Final Plot ==========
 with h5py.File('vortex_data_128.h5', 'r') as hf:
     last_step = hf[f'time_data/step_{T - 1:04d}']
     data = {'u': last_step['u'][...], 'v': last_step['v'][...]}
@@ -110,4 +118,4 @@ with h5py.File('vortex_data_128.h5', 'r') as hf:
 plot_vortex(data, mask=False)
 plot_vortex(data, mask=True)
 
-print("Simulation complete! Plots saved as vortex_unmasked.png and vortex_masked.png")
+print("✅ Simulation complete! Final plots saved.")

@@ -55,10 +55,9 @@ Q(t) is more sensitive than KE or Nu — it captures <em>how organized</em> the 
 A high KE can exist even in turbulent or incoherent states. Nu may fluctuate heavily, but it doesn't reveal structural alignment.
 </p>
 
-<p>
-✅ <strong>Conclusion:</strong><br>
-Q(t) gives an earlier, sharper, and structurally meaningful signal of instability or transition. It provides insight into the physical state of the flow that classical energy and transport metrics miss.
-</p>
+<blockquote>
+  <p><em>Q(t) gives an earlier, sharper, and structurally meaningful signal of instability or transition. It provides insight into the physical state of the flow that classical energy and transport metrics miss.</em></p>
+</blockquote>
 
 <p><em>Result:</em> Q(t) is a valuable tool for detecting instability, loss of coherence, and early turbulence in fluid systems — even before KE or Nu fully respond.</p>
 

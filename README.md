@@ -61,6 +61,7 @@ A high KE can exist even in turbulent or incoherent states. Nu may fluctuate hea
 
 <p><em>Result:</em> Q(t) is a valuable tool for detecting instability, loss of coherence, and early turbulence in fluid systems — even before KE or Nu fully respond.</p>
 
+<hr>
 
 <h3>✅ Coherence Quotient Validation: Resolution Comparison (1000-Step Runs)</h3>
 
@@ -94,9 +95,6 @@ The Coherence Quotient <code>Q(t)</code> serves as a spectral alignment diagnost
 <blockquote>
   <p><em>This comparison confirms that <code>Q(t)</code> not only detects the onset of coherence breakdown but also scales with resolution. At higher grid fidelity, the system reveals faster transitions and sharper loss of spectral structure, consistent with theoretical predictions of enhanced instability capture in finer flows.</em></p>
 </blockquote>
-
-<hr>
-
 
 ---
 

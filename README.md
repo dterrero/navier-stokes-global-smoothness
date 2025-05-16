@@ -30,29 +30,40 @@ The solution leverages a new functional — the **Coherence Quotient** \( Q(t) \
 
 <h3>✅ Coherence Detection: Q(t) vs Classical Diagnostics</h3>
 
-<p align="center">
-  <img src="assets/img/Qt_vs_traditional_diagnostics.png" width="500"/>
+<h2>Coherence Detection: <em>Q(t)</em> vs Classical Diagnostics</h2>
+
+<p>
+This simulation compares how different diagnostics respond to a forced convection event triggered at step 500:
 </p>
 
-<p>This simulation compares how different diagnostics respond to a forced convection event triggered at step 500:</p>
+<p align="center">
+  <img src="assets/img/full_diagnostic_comparison_Q(s)_KE_Nu.png" width="500"/>
+</p>
 
 <ul>
-  <li><strong>Q(t)</strong> — Spectral coherence functional (new)</li>
-  <li><strong>Kinetic Energy (KE)</strong> — Measures flow intensity</li>
-  <li><strong>Nusselt Number (Nu)</strong> — Measures heat transport</li>
+  <li><strong>Q(t)</strong> — Coherence Quotient: measures spectral alignment between velocity gradients and their filtered structure (new diagnostic)</li>
+  <li><strong>Kinetic Energy (KE)</strong> — Measures the total flow intensity</li>
+  <li><strong>Nusselt Number (Nu)</strong> — Measures the efficiency of heat transport</li>
 </ul>
 
-<h4>💡 Interpretation:</h4>
+<p>
+📊 <strong>What the graph shows:</strong><br>
+At step 500, <strong>Q(t) decays sharply</strong>, signaling a breakdown in flow coherence. In contrast, KE rises and Nu begins fluctuating only afterward.
+</p>
 
-<ul>
-  <li>At <strong>step 500</strong>, Q(t) immediately rises, detecting structural flow coherence.</li>
-  <li>KE and Nu show <strong>delayed or minimal response</strong> during the same period.</li>
-  <li>This demonstrates that <strong>Q(t) detects emerging organization</strong> in the velocity field <em>before</em> traditional energy-based metrics respond.</li>
-</ul>
+<p>
+🧠 <strong>Interpretation:</strong><br>
+Q(t) is more sensitive than KE or Nu — it captures <em>how organized</em> the flow structure is, not just how fast it's moving or how much heat it transfers. 
+A high KE can exist even in turbulent or incoherent states. Nu may fluctuate heavily, but it doesn't reveal structural alignment.
+</p>
 
-<p>📌 <strong>Result:</strong> Q(t) provides <strong>earlier and more sensitive detection</strong> of convective onset, making it a valuable tool for analyzing instability and transition in fluid systems.</p>
+<p>
+✅ <strong>Conclusion:</strong><br>
+Q(t) gives an earlier, sharper, and structurally meaningful signal of instability or transition. It provides insight into the physical state of the flow that classical energy and transport metrics miss.
+</p>
 
-<hr>
+<p><em>Result:</em> Q(t) is a valuable tool for detecting instability, loss of coherence, and early turbulence in fluid systems — even before KE or Nu fully respond.</p>
+
 
 <h3>✅ Coherence Quotient Validation (5000-Step Run)</h3>
 

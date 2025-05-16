@@ -63,25 +63,37 @@ Q(t) gives an earlier, sharper, and structurally meaningful signal of instabilit
 <p><em>Result:</em> Q(t) is a valuable tool for detecting instability, loss of coherence, and early turbulence in fluid systems — even before KE or Nu fully respond.</p>
 
 
-<h3>✅ Coherence Quotient Validation (5000-Step Run)</h3>
+<h3>✅ Coherence Quotient Validation: Resolution Comparison (1000-Step Runs)</h3>
 
-<p>The Coherence Quotient <code>Q(t)</code> was tracked over 5000 simulation steps to test long-term spectral regularity. The results confirm the theoretical prediction:</p>
+<p>
+This validation compares the structural coherence decay across two simulations of 1000 steps each, using grid resolutions of <code>N = 64³</code> and <code>N = 128³</code>.
+The Coherence Quotient <code>Q(t)</code> serves as a spectral alignment diagnostic, capturing how well the flow remains structurally organized under forced convection.
+</p>
+
+<p align="center">
+  <img src="assets/img/resolution_comparison_of_coherence_decay_128_64.png" width="500"/>
+</p>
 
 <ul>
-  <li><strong>Initial:</strong> <code>Q(0) ≈ 1.24</code></li>
-  <li><strong>Final:</strong> <code>Q(5000) ≈ 0.0198</code></li>
-  <li><strong>Behavior:</strong> Smooth exponential decay — no reversals, no noise, no numerical instability</li>
+  <li><strong>Initial Coherence:</strong> <code>Q(0) = 1.0</code> in both cases — fully aligned gradients before injection</li>
+  <li><strong>Final Coherence at Step 1000:</strong>
+    <ul>
+      <li><code>Q ≈ 0.798</code> for <code>N = 128³</code> — sharper decay and lower asymptotic coherence</li>
+      <li><code>Q ≈ 0.850</code> for <code>N = 64³</code> — smoother decline with higher residual coherence</li>
+    </ul>
+  </li>
+  <li><strong>Trend:</strong> The high-resolution run exhibits faster and deeper spectral misalignment, suggesting stronger sensitivity to small-scale disorder</li>
 </ul>
 
-<p>Energy and Dissipation Also Behaved Consistently:</p>
+<p>📉 <strong>Complementary Diagnostics (128³ run):</strong></p>
 
 <ul>
-  <li><strong>Final Energy:</strong> <code>≈ 0.00486</code> (decayed smoothly from ~0.5)</li>
-  <li><strong>Final Dissipation (ε):</strong> <code>≈ 1.16 × 10⁻⁴</code> (stable and positive)</li>
+  <li><strong>Final Energy:</strong> <code>≈ 0.00150</code> — decayed smoothly from ~0.5</li>
+  <li><strong>Dissipation (ε):</strong> <em>Not recorded in this diagnostic set</em></li>
 </ul>
 
 <blockquote>
-  <p><em>The flow becomes progressively more coherent over time, aligning with the filtered structural tensor <code>A(x, t)</code>. No singularities or blow-up observed. Coherence decay appears sufficient for global smoothness.</em></p>
+  <p><em>This comparison confirms that <code>Q(t)</code> not only detects the onset of coherence breakdown but also scales with resolution. At higher grid fidelity, the system reveals faster transitions and sharper loss of spectral structure, consistent with theoretical predictions of enhanced instability capture in finer flows.</em></p>
 </blockquote>
 
 <hr>

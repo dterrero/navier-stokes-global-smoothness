@@ -8,108 +8,84 @@
 
 ## Overview
 
-This repository contains the mathematical framework, simulations, and visualizations supporting a proposed resolution to the [Navier–Stokes Millennium Problem](https://www.claymath.org/millennium-problems/navier%E2%80%93stokes-equation).
+This repository presents a mathematical framework, simulation suite, and supporting visualizations for a proposed resolution of the [Navier–Stokes Millennium Problem](https://www.claymath.org/millennium-problems/navier%E2%80%93stokes-equation).
 
-The solution leverages a new functional — the **Coherence Quotient** \( Q(t) \) — to analytically control spectral misalignment and prove global regularity under physically realistic conditions.
+The approach introduces a novel diagnostic — the **Coherence Quotient** \( Q(t) \) — which quantifies spectral misalignment and serves as the foundation for a new global regularity criterion under physically realistic conditions.
 
 ---
 
 ## Contents
 
-- [`coherence_theory.pdf`](./coherence_theory.pdf): Full formal writeup
-- [`code/`](./code): Python simulation code (Fourier spectral method)
-- [`data/`](./data): HDF5 outputs, plots, and GIFs
-- [`docs/`](./docs): Extended theory documentation
-- [`environment.yml`](./environment.yml): Dependencies for reproduction
+- [`coherence_theory.pdf`](./coherence_theory.pdf) — Full formal writeup
+- [`code/`](./code) — Python simulation code (Fourier spectral methods)
+- [`data/`](./data) — HDF5 simulation outputs, plots, and animations
+- [`docs/`](./docs) — Extended theoretical documentation
+- [`environment.yml`](./environment.yml) — Reproducible conda environment
 
 ---
 
 ## Visual Highlights
 
-<h2>Simulations</h2>
+### ✅ Coherence Detection: Q(t) vs Classical Diagnostics
 
-<h3>✅ Coherence Detection: Q(t) vs Classical Diagnostics</h3>
+This simulation compares three diagnostic quantities during a forced convection event triggered at step 500:
 
-<p>
-This simulation compares how different diagnostics respond to a forced convection event triggered at step 500:
-</p>
+- **Q(t)** — *Coherence Quotient*: measures spectral alignment between the full velocity gradient field and its low-pass filtered structure
+- **Kinetic Energy (KE)** — captures bulk flow intensity
+- **Nusselt Number (Nu)** — reflects convective heat transfer efficiency
 
 <p align="center">
   <img src="assets/img/full_diagnostic_comparison_Q(s)_KE_Nu.png" width="500"/>
 </p>
 
-<ul>
-  <li><strong>Q(t)</strong> — Coherence Quotient: measures spectral alignment between velocity gradients and their filtered structure (new diagnostic)</li>
-  <li><strong>Kinetic Energy (KE)</strong> — Measures the total flow intensity</li>
-  <li><strong>Nusselt Number (Nu)</strong> — Measures the efficiency of heat transport</li>
-</ul>
+**📊 What the graph shows:**  
+At step 500, \( Q(t) \) drops sharply — signaling structural misalignment. KE and Nu respond more slowly, highlighting their limitations in capturing early instability.
 
-<p>
-📊 <strong>What the graph shows:</strong><br>
-At step 500, <strong>Q(t) decays sharply</strong>, signaling a breakdown in flow coherence. In contrast, KE rises and Nu begins fluctuating only afterward.
-</p>
+**🧠 Interpretation:**  
+While KE tracks energy and Nu tracks heat, only \( Q(t) \) reflects the internal order of the flow field. It detects breakdowns in spectral coherence well before energy-based measures do.
 
-<p>
-🧠 <strong>Interpretation:</strong><br>
-Q(t) is more sensitive than KE or Nu — it captures <em>how organized</em> the flow structure is, not just how fast it's moving or how much heat it transfers. 
-A high KE can exist even in turbulent or incoherent states. Nu may fluctuate heavily, but it doesn't reveal structural alignment.
-</p>
+> 💡 **Result:**  
+> \( Q(t) \) is a powerful structural diagnostic — capable of identifying early-stage instability, turbulence onset, and loss of smoothness far in advance of classical quantities.
 
-<blockquote>
-  <p><em>Q(t) gives an earlier, sharper, and structurally meaningful signal of instability or transition. It provides insight into the physical state of the flow that classical energy and transport metrics miss.</em></p>
-</blockquote>
+---
 
-<p><em>Result:</em> Q(t) is a valuable tool for detecting instability, loss of coherence, and early turbulence in fluid systems — even before KE or Nu fully respond.</p>
+### ✅ Coherence Quotient Validation: Resolution Comparison (1000-Step Runs)
 
-<hr>
-
-<h3>✅ Coherence Quotient Validation: Resolution Comparison (1000-Step Runs)</h3>
-
-<p>
-This validation compares the structural coherence decay across two simulations of 1000 steps each, using grid resolutions of <code>N = 64³</code> and <code>N = 128³</code>.
-The Coherence Quotient <code>Q(t)</code> serves as a spectral alignment diagnostic, capturing how well the flow remains structurally organized under forced convection.
-</p>
+This comparison illustrates how resolution affects coherence decay over time. Two simulations — one at \( 64^3 \), the other at \( 128^3 \) — were run for 1000 steps under identical forcing.
 
 <p align="center">
   <img src="assets/img/resolution_comparison_of_coherence_decay_128_64.png" width="500"/>
 </p>
 
-<ul>
-  <li><strong>Initial Coherence:</strong> <code>Q(0) = 1.0</code> in both cases — fully aligned gradients before injection</li>
-  <li><strong>Final Coherence at Step 1000:</strong>
-    <ul>
-      <li><code>Q ≈ 0.798</code> for <code>N = 128³</code> — sharper decay and lower asymptotic coherence</li>
-      <li><code>Q ≈ 0.850</code> for <code>N = 64³</code> — smoother decline with higher residual coherence</li>
-    </ul>
-  </li>
-  <li><strong>Trend:</strong> The high-resolution run exhibits faster and deeper spectral misalignment, suggesting stronger sensitivity to small-scale disorder</li>
-</ul>
+**Initial Coherence:**  
+- \( Q(0) = 1.0 \) in both cases — perfect alignment at initialization
 
-<p>📉 <strong>Complementary Diagnostics (128³ run):</strong></p>
+**Final Coherence at Step 1000:**  
+- \( Q \approx 0.798 \) for \( 128^3 \) — faster, sharper coherence loss  
+- \( Q \approx 0.850 \) for \( 64^3 \) — slower, more gradual decay
 
-<ul>
-  <li><strong>Final Energy:</strong> <code>≈ 0.00150</code> — decayed smoothly from ~0.5</li>
-  <li><strong>Dissipation (ε):</strong> <em>Not recorded in this diagnostic set</em></li>
-</ul>
+**Trend:**  
+Higher resolution accelerates spectral misalignment by resolving finer-scale instabilities. The coherence framework scales naturally with grid fidelity.
 
-<blockquote>
-  <p><em>This comparison confirms that <code>Q(t)</code> not only detects the onset of coherence breakdown but also scales with resolution. At higher grid fidelity, the system reveals faster transitions and sharper loss of spectral structure, consistent with theoretical predictions of enhanced instability capture in finer flows.</em></p>
-</blockquote>
+**📉 Complementary Diagnostic (128³ run):**  
+- Final energy: \( \approx 0.00150 \) — smoothly decayed from initial ~0.5  
+- Dissipation \( \varepsilon \): *Not recorded* in this diagnostic
+
+> 🧠 **Conclusion:**  
+> \( Q(t) \) responds consistently to both resolution and physical forcing. Its decay reflects the breakdown of structural order — confirming its value as a regularity-tracking tool across scales.
 
 ---
 
 ## Quick Start
 
 ```bash
-# Clone repo
+# Clone the repository
 git clone https://github.com/dterrero/navier-stokes-global-smoothness.git
 cd navier-stokes-global-smoothness
-  
-# Set up environment
+
+# Create environment
 conda env create -f environment.yml
 conda activate nse
 
-# Run simulation
-python code/coherence_decay_vortex2D.py.py
-
-
+# Run main 2D vortex simulation
+python code/coherence_decay_vortex2D.py

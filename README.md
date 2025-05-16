@@ -30,8 +30,6 @@ The solution leverages a new functional — the **Coherence Quotient** \( Q(t) \
 
 <h3>✅ Coherence Detection: Q(t) vs Classical Diagnostics</h3>
 
-<h2>Coherence Detection: <em>Q(t)</em> vs Classical Diagnostics</h2>
-
 <p>
 This simulation compares how different diagnostics respond to a forced convection event triggered at step 500:
 </p>

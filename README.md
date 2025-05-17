@@ -2,7 +2,7 @@
 
 **Author:** Dickson Terrero & Felix A Terrero
 **Last Updated:** May 2025  
-**Status:** Under review for formal submission (Annals of Mathematics)
+**Status:**  Submitted to Annals of Mathematics and to arXiv (pending moderation), May 2025
 
 ---
 

@@ -13,7 +13,7 @@ nu = 0
 kappa = 0
 Ra = 1e5
 beta = 0.0  # since kappa=0, beta will always be zero
-n_steps = 1200
+n_steps = 3000
 kc = int(N / 10)
 dx = L / N
 

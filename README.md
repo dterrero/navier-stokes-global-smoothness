@@ -6,26 +6,40 @@
 
 ---
 
-## Overview
+<h2>Overview</h2>
 
-This repository presents a mathematical framework, simulation suite, and supporting visualizations for a proposed resolution of the [Navier–Stokes Millennium Problem](https://www.claymath.org/millennium-problems/navier%E2%80%93stokes-equation).
+<p>This repository presents a mathematical framework, simulation suite, and supporting visualizations for a proposed resolution of the 
+<a href="https://www.claymath.org/millennium-problems/navier%E2%80%93stokes-equation" target="_blank">Navier–Stokes Millennium Problem</a>.</p>
 
-The approach introduces a novel diagnostic — the **Coherence Quotient** \( Q(t) \) — which quantifies spectral misalignment and serves as the foundation for a new global regularity criterion under physically realistic conditions.
+<p>The approach introduces a novel diagnostic — the <strong>Coherence Quotient</strong> <code>Q(t)</code> — which quantifies spectral misalignment and serves as the foundation for a new global regularity criterion under physically realistic conditions.</p>
 
-<p><strong>ℹ️ How Q(t) is computed from the NSE:</strong><br>
-The Coherence Quotient <code>Q(t)</code> is not an external measure — it is derived directly from the Navier–Stokes velocity gradient field <code>∇u</code>. It compares this gradient with its low-pass filtered counterpart <code>A = P<sub>k<sub>c</sub></sub> ∇u</code>, where <code>P<sub>k<sub>c</sub></sub></code> denotes a spectral projection onto coherent modes. Formally,</p>
+<blockquote>
+  <p>ℹ️ <strong>How <code>Q(t)</code> is computed from the NSE:</strong><br>
+  The Coherence Quotient <code>Q(t)</code> is not an external measure — it is derived directly from the Navier–Stokes velocity gradient field <code>∇u</code>.<br>
+  It compares this gradient with its low-pass filtered counterpart:</p>
 
-<p align="center"><code>
-Q(t) = ⟨∇u, A⟩ / (‖∇u‖ · ‖A‖)
-</code></p>
+  <p align="center"><code>A = P<sub>k<sub>c</sub></sub> ∇u</code></p>
 
-<p>This normalized inner product (cosine similarity) quantifies how well the true velocity gradient aligns with its coherent structure. A drop in <code>Q(t)</code> indicates emerging misalignment, spectral instability, or turbulence — even before energy-based metrics detect it.</p>
+  <p>where <code>P<sub>k<sub>c</sub></sub></code> denotes a spectral projection onto coherent modes.</p>
 
-> 📝 **Submission Status:**  
-> This repository accompanies our formal submission to arXiv and the *Annals of Mathematics*, currently under review (May 2025).  
-> The complete preprint — including the full theoretical framework and proof — is available in [`Global_Smoothness_via_Coherence_Decay_in_the_3D_Navier_Stokes_Equations.pdf`](./docs/Global_Smoothness_via_Coherence_Decay_in_the_3D_Navier_Stokes_Equations.pdf).  
-> While moderation is pending, this GitHub version reflects the identical content submitted for public archival and evaluation.
+  <p>The formal definition is:</p>
 
+  <p align="center"><code>Q(t) = ⟨∇u, A⟩ / (‖∇u‖ · ‖A‖)</code></p>
+
+  <p>This normalized inner product (cosine similarity) quantifies how well the true velocity gradient aligns with its coherent structure.<br>
+  A drop in <code>Q(t)</code> indicates emerging misalignment, spectral instability, or turbulence — even before energy-based metrics detect it.</p>
+</blockquote>
+
+<hr>
+
+<blockquote>
+  <p>📝 <strong>Submission Status:</strong><br>
+  This repository accompanies our formal submission to arXiv and the <em>Annals of Mathematics</em>, currently under review (May 2025).<br>
+  The complete preprint — including the full theoretical framework and proof — is available in 
+  <a href="./docs/Global_Smoothness_via_Coherence_Decay_in_the_3D_Navier_Stokes_Equations.pdf">Global_Smoothness_via_Coherence_Decay_in_the_3D_Navier_Stokes_Equations.pdf</a>.<br>
+  While moderation is pending, this GitHub version reflects the identical content submitted for public archival and evaluation.
+  </p>
+</blockquote>
 
 ## Contents
 

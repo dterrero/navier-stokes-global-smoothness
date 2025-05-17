@@ -67,9 +67,16 @@
 </ul>
 
 
-<p align="center">
-  <img src="assets/img/full_diagnostic_comparison_Q(s)_KE_Nu.png" width="500"/>
-</p>
+<div style="display: flex; justify-content: space-between; gap: 20px;">
+  <div style="flex: 1; text-align: center;">
+    <img src="assets/img/plot_q_t.png" alt="Q(t) Plot" width="100%">
+    <p><strong>Figure 1:</strong> Q(t) — Coherence Quotient</p>
+  </div>
+  <div style="flex: 1; text-align: center;">
+    <img src="assets/img/plot_ke_nu_t.png" alt="KE and Nu Plot" width="100%">
+    <p><strong>Figure 2:</strong> KE(t) &amp; Nu(t) — Classical Diagnostics</p>
+  </div>
+</div>
 
 <p><strong>📊 What the graph shows:</strong><br>
 At step 500, <code>Q(t)</code> drops sharply — signaling structural misalignment. KE and Nu respond more slowly, highlighting their limitations in capturing early instability.</p>

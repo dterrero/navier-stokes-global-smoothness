@@ -12,6 +12,15 @@ This repository presents a mathematical framework, simulation suite, and support
 
 The approach introduces a novel diagnostic — the **Coherence Quotient** \( Q(t) \) — which quantifies spectral misalignment and serves as the foundation for a new global regularity criterion under physically realistic conditions.
 
+<p><strong>ℹ️ How Q(t) is computed from the NSE:</strong><br>
+The Coherence Quotient <code>Q(t)</code> is not an external measure — it is derived directly from the Navier–Stokes velocity gradient field <code>∇u</code>. It compares this gradient with its low-pass filtered counterpart <code>A = P<sub>k<sub>c</sub></sub> ∇u</code>, where <code>P<sub>k<sub>c</sub></sub></code> denotes a spectral projection onto coherent modes. Formally,</p>
+
+<p align="center"><code>
+Q(t) = ⟨∇u, A⟩ / (‖∇u‖ · ‖A‖)
+</code></p>
+
+<p>This normalized inner product (cosine similarity) quantifies how well the true velocity gradient aligns with its coherent structure. A drop in <code>Q(t)</code> indicates emerging misalignment, spectral instability, or turbulence — even before energy-based metrics detect it.</p>
+
 > 📝 **Submission Status:**  
 > This repository accompanies our formal submission to arXiv and the *Annals of Mathematics*, currently under review (May 2025).  
 > The complete preprint — including the full theoretical framework and proof — is available in [`Global_Smoothness_via_Coherence_Decay_in_the_3D_Navier_Stokes_Equations.pdf`](./docs/Global_Smoothness_via_Coherence_Decay_in_the_3D_Navier_Stokes_Equations.pdf).  
@@ -27,15 +36,6 @@ The approach introduces a novel diagnostic — the **Coherence Quotient** \( Q(t
 - [`environment.yml`](./environment.yml) — Reproducible conda environment
 
 ---
-
-<p><strong>ℹ️ How Q(t) is computed from the NSE:</strong><br>
-The Coherence Quotient <code>Q(t)</code> is not an external measure — it is derived directly from the Navier–Stokes velocity gradient field <code>∇u</code>. It compares this gradient with its low-pass filtered counterpart <code>A = P<sub>k<sub>c</sub></sub> ∇u</code>, where <code>P<sub>k<sub>c</sub></sub></code> denotes a spectral projection onto coherent modes. Formally,</p>
-
-<p align="center"><code>
-Q(t) = ⟨∇u, A⟩ / (‖∇u‖ · ‖A‖)
-</code></p>
-
-<p>This normalized inner product (cosine similarity) quantifies how well the true velocity gradient aligns with its coherent structure. A drop in <code>Q(t)</code> indicates emerging misalignment, spectral instability, or turbulence — even before energy-based metrics detect it.</p>
 
 ## Visual Highlights
 

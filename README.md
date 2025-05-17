@@ -43,6 +43,16 @@ The approach introduces a novel diagnostic — the **Coherence Quotient** \( Q(t
   <li><strong>Nusselt Number (Nu)</strong> — reflects convective heat transfer efficiency</li>
 </ul>
 
+<p><strong>ℹ️ How Q(t) is computed from the NSE:</strong><br>
+The Coherence Quotient <code>Q(t)</code> is not an external measure — it is derived directly from the Navier–Stokes velocity gradient field <code>∇u</code>. It compares this gradient with its low-pass filtered counterpart <code>A = P<sub>k<sub>c</sub></sub> ∇u</code>, where <code>P<sub>k<sub>c</sub></sub></code> denotes a spectral projection onto coherent modes. Formally,</p>
+
+<p align="center"><code>
+Q(t) = ⟨∇u, A⟩ / (‖∇u‖ · ‖A‖)
+</code></p>
+
+<p>This normalized inner product (cosine similarity) quantifies how well the true velocity gradient aligns with its coherent structure. A drop in <code>Q(t)</code> indicates emerging misalignment, spectral instability, or turbulence — even before energy-based metrics detect it.</p>
+
+
 <p align="center">
   <img src="assets/img/full_diagnostic_comparison_Q(s)_KE_Nu.png" width="500"/>
 </p>

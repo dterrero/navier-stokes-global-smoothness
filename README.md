@@ -30,26 +30,34 @@ The approach introduces a novel diagnostic — the **Coherence Quotient** \( Q(t
 
 ## Visual Highlights
 
-### ✅ Coherence Detection: Q(t) vs Classical Diagnostics
+<h3>✅ Coherence Detection: Q(t) vs Classical Diagnostics</h3>
 
-This simulation compares three diagnostic quantities during a forced convection event triggered at step 500:
+<p><strong>Initial Coherence:</strong> Both simulations presented below begin with <strong>perfect spectral alignment</strong>, i.e., 
+<code>Q(0) = 1.0</code> — full coherence at initialization.</p>
 
-- **Q(t)** — *Coherence Quotient*: measures spectral alignment between the full velocity gradient field and its low-pass filtered structure
-- **Kinetic Energy (KE)** — captures bulk flow intensity
-- **Nusselt Number (Nu)** — reflects convective heat transfer efficiency
+<p>This first simulation compares three diagnostic quantities during a forced convection event triggered at step 500:</p>
+
+<ul>
+  <li><strong>Q(t)</strong> — <em>Coherence Quotient</em>: measures spectral alignment between the full velocity gradient field and its low-pass filtered structure</li>
+  <li><strong>Kinetic Energy (KE)</strong> — captures bulk flow intensity</li>
+  <li><strong>Nusselt Number (Nu)</strong> — reflects convective heat transfer efficiency</li>
+</ul>
 
 <p align="center">
   <img src="assets/img/full_diagnostic_comparison_Q(s)_KE_Nu.png" width="500"/>
 </p>
 
-**📊 What the graph shows:**  
-At step 500, \( Q(t) \) drops sharply — signaling structural misalignment. KE and Nu respond more slowly, highlighting their limitations in capturing early instability.
+<p><strong>📊 What the graph shows:</strong><br>
+At step 500, <code>Q(t)</code> drops sharply — signaling structural misalignment. KE and Nu respond more slowly, highlighting their limitations in capturing early instability.</p>
 
-**🧠 Interpretation:**  
-While KE tracks energy and Nu tracks heat, only \( Q(t) \) reflects the internal order of the flow field. It detects breakdowns in spectral coherence well before energy-based measures do.
+<p><strong>🧠 Interpretation:</strong><br>
+While KE tracks energy and Nu tracks heat, only <code>Q(t)</code> reflects the internal order of the flow field. It detects breakdowns in spectral coherence well before energy-based measures do.</p>
 
-> 💡 **Result:**  
-> \( Q(t) \) is a powerful structural diagnostic — capable of identifying early-stage instability, turbulence onset, and loss of smoothness far in advance of classical quantities.
+<blockquote>
+  💡 <strong>Result:</strong><br>
+  <code>Q(t)</code> is a powerful structural diagnostic — capable of identifying early-stage instability, turbulence onset, and loss of smoothness far in advance of classical quantities.
+</blockquote>
+
 
 ---
 

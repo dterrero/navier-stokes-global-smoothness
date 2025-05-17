@@ -43,7 +43,7 @@
 
 ## Contents
 
-- [`coherence_theory.pdf`](./coherence_theory.pdf) — Full formal writeup
+- [`Global_Smoothness_via_Coherence_Decay_in_the_3D_Navier_Stokes_Equations.pdf`](./Global_Smoothness_via_Coherence_Decay_in_the_3D_Navier_Stokes_Equations.pdf) — Full formal writeup
 - [`code/`](./code) — Python simulation code (Fourier spectral methods)
 - [`data/`](./data) — HDF5 simulation outputs, plots, and animations
 - [`docs/`](./docs) — Extended theoretical documentation

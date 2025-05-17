@@ -12,7 +12,11 @@ This repository presents a mathematical framework, simulation suite, and support
 
 The approach introduces a novel diagnostic — the **Coherence Quotient** \( Q(t) \) — which quantifies spectral misalignment and serves as the foundation for a new global regularity criterion under physically realistic conditions.
 
----
+> 📝 **Submission Status:**  
+> This repository accompanies our formal submission to arXiv and the *Annals of Mathematics*, currently under review (May 2025).  
+> The complete preprint — including the full theoretical framework and proof — is available in [`Global_Smoothness_via_Coherence_Decay_in_the_3D_Navier_Stokes_Equations.pdf`](./docs/Global_Smoothness_via_Coherence_Decay_in_the_3D_Navier_Stokes_Equations.pdf).  
+> While moderation is pending, this GitHub version reflects the identical content submitted for public archival and evaluation.
+
 
 ## Contents
 

@@ -1,6 +1,6 @@
 # Global Smoothness of the 3D Incompressible Navier–Stokes Equations
 
-**Author:** Dickson Terrero  
+**Author:** Dickson Terrero & Felix A Terrero
 **Last Updated:** May 2025  
 **Status:** Under review for formal submission (Annals of Mathematics)
 

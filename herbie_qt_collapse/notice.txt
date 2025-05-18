@@ -3,13 +3,18 @@ NOTICE
 This repository includes original research and code related to the Coherence Quotient Q(t),
 a spectral alignment diagnostic applied to turbulence and singularity detection in fluid systems.
 
-While the source code is provided under the MIT License (see LICENSE.txt), the theoretical
-framework, use cases, and scientific interpretation of Q(t) are part of an ongoing
-research program by the author.
+This work is shared under the **Creative Commons Attribution–NonCommercial 4.0 International License (CC BY-NC 4.0)**.
+To view the license, visit: https://creativecommons.org/licenses/by-nc/4.0/
 
-This work is shared for **educational and research purposes only**.
+✅ You are free to:
+- Share — copy and redistribute the material in any medium or format
+- Adapt — remix, transform, and build upon the material
 
-⚠️ Commercial use of the underlying methods, structural interpretations, or predictive
+⚠️ Under the following conditions:
+- **Attribution** — You must give appropriate credit and indicate if changes were made.
+- **NonCommercial** — You may not use the material for commercial purposes.
+
+Commercial use of the underlying methods, structural interpretations, or predictive
 claims is **not authorized** without prior permission or formal agreement.
 
 The dataset used (HRRR) is public and accessed via the Herbie Main interface.
@@ -25,5 +30,6 @@ If using this repository in research or publications, please include the citatio
   title        = {Q(t) Collapse Diagnostics for Atmospheric Coherence Loss},
   year         = {2025},
   note         = {Available at https://github.com/dterrero/herbie_qt_collapse},
-  howpublished = {GitHub repository},
+  howpublished = {GitHub repository}
 }
+

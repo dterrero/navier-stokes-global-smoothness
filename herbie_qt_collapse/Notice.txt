@@ -1,11 +1,3 @@
-@misc{terrero2025qt,
-  author       = {Dickson A. Terrero},
-  title        = {Q(t) Collapse Diagnostics for Atmospheric Coherence Loss},
-  year         = {2025},
-  note         = {Available at https://github.com/dterrero/q_collapse_mayfield},
-  howpublished = {GitHub repository},
-}
-
 NOTICE
 
 This repository includes original research and code related to the Coherence Quotient Q(t),
@@ -24,8 +16,14 @@ The dataset used (HRRR) is public and accessed via the Herbie Main interface.
 All Q(t) results in this repository are derived directly from that data and are 
 presented to demonstrate proof-of-concept only — not as an operational forecasting tool.
 
-For academic reuse, attribution is required.  
-Recommended citation or reference: https://github.com/dterrero/q_collapse_mayfield
+---
 
-Author: Dickson A. Terrero  
-Year: 2025
+@misc{terrero2025qt,
+  author       = {Dickson A. Terrero},
+  title        = {Q(t) Collapse Diagnostics for Atmospheric Coherence Loss},
+  year         = {2025},
+  note         = {Available at https://github.com/dterrero/q_collapse_mayfield},
+  howpublished = {GitHub repository},
+}
+
+If using this repository in research or publications, please include the citation above.

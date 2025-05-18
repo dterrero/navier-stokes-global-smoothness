@@ -2,7 +2,7 @@
   author       = {Dickson A. Terrero},
   title        = {Q(t) Collapse Diagnostics for Atmospheric Coherence Loss},
   year         = {2025},
-  note         = {Available at \url{https://github.com/dterrero/q_collapse_mayfield}},
+  note         = {Available at https://github.com/dterrero/q_collapse_mayfield},
   howpublished = {GitHub repository},
 }
 

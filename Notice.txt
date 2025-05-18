@@ -1,0 +1,23 @@
+NOTICE
+
+This repository includes original research and code related to the Coherence Quotient Q(t),
+a spectral alignment diagnostic applied to turbulence and singularity detection in fluid systems.
+
+While the source code is provided under the MIT License (see LICENSE.txt), the theoretical
+framework, use cases, and scientific interpretation of Q(t) are part of an ongoing
+research program by the author.
+
+This work is shared for **educational and research purposes only**.
+
+⚠️ Commercial use of the underlying methods, structural interpretations, or predictive
+claims is **not authorized** without prior permission or formal agreement.
+
+The dataset used (HRRR) is public and accessed via the Herbie Main interface.
+All Q(t) results in this repository are derived directly from that data and are 
+presented to demonstrate proof-of-concept only — not as an operational forecasting tool.
+
+For academic reuse, attribution is required.  
+Recommended citation or reference: https://github.com/dterrero/q_collapse_mayfield
+
+Author: Dickson A. Terrero  
+Year: 2025

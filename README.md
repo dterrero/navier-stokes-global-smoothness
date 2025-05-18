@@ -133,6 +133,19 @@ This project is licensed under the **Creative Commons Attribution–NonCommercia
 
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC--BY--NC%204.0-blue.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 
+```bash
+# Clone the repository
+git clone https://github.com/dterrero/navier-stokes-global-smoothness.git
+cd navier-stokes-global-smoothness
+
+# Create environment
+conda env create -f environment.yml
+conda activate nse
+
+# Run main 2D vortex simulation
+python code/coherence_decay_vortex2D.py
+
+
 ## 📖 Citation
 
 If you use this project in your research, please cite it as:
@@ -151,17 +164,3 @@ Or in BibTeX format:
   howpublished = {Zenodo},
   note         = {Structural collapse detection using Q(t) and HRRR data from the Mayfield, KY tornado case (2021).}
 }
-
-
-
-```bash
-# Clone the repository
-git clone https://github.com/dterrero/navier-stokes-global-smoothness.git
-cd navier-stokes-global-smoothness
-
-# Create environment
-conda env create -f environment.yml
-conda activate nse
-
-# Run main 2D vortex simulation
-python code/coherence_decay_vortex2D.py

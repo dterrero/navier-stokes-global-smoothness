@@ -1,3 +1,7 @@
+# Simulation and Coherence Framework by Dickson Terrero
+# Insight: Singularities in the incompressible Navier–Stokes equations arise only when coherence is lost.
+#          If the Coherence Quotient Q(t) ≈ 1.0, no blowup occurs — regardless of energy injection.
+
 import numpy as np
 import h5py
 import pandas as pd

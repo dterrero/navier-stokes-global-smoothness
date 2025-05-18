@@ -1,3 +1,11 @@
+@misc{terrero2025qt,
+  author       = {Dickson A. Terrero},
+  title        = {Q(t) Collapse Diagnostics for Atmospheric Coherence Loss},
+  year         = {2025},
+  note         = {Available at \url{https://github.com/dterrero/q_collapse_mayfield}},
+  howpublished = {GitHub repository},
+}
+
 NOTICE
 
 This repository includes original research and code related to the Coherence Quotient Q(t),

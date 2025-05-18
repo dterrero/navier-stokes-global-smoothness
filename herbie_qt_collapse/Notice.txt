@@ -22,7 +22,7 @@ presented to demonstrate proof-of-concept only — not as an operational forecas
   author       = {Dickson A. Terrero},
   title        = {Q(t) Collapse Diagnostics for Atmospheric Coherence Loss},
   year         = {2025},
-  note         = {Available at https://github.com/dterrero/q_collapse_mayfield},
+  note         = {Available at https://github.com/dterrero/herbie_qt_collapse},
   howpublished = {GitHub repository},
 }
 

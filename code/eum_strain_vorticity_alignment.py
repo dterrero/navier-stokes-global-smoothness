@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
 # eum_strain_vorticity_alignment.py
 #
-# Computes the Coherence Quotient Q(t) for 2D vortex decay and coherence diagnostics.
+# Computes the Coherence Quotient Q(t) for strain vorticity aligment.
 #
 # Author: Dickson A. Terrero
 # License: CC BY-NC 4.0 — Creative Commons Attribution–NonCommercial 4.0

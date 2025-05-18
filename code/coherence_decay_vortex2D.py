@@ -1,3 +1,26 @@
+# ------------------------------------------------------------------------------
+# coherence_decay_vortex2D.py
+#
+# Computes the Coherence Quotient Q(t) for 2D vortex decay and coherence diagnostics.
+#
+# Author: Dickson A. Terrero
+# License: CC BY-NC 4.0 — Creative Commons Attribution–NonCommercial 4.0
+# https://creativecommons.org/licenses/by-nc/4.0/
+#
+# ------------------------------------------------------------------------------
+# ⚠️ Usage Notice:
+# This script and associated formulas are shared for **educational and research purposes only**.
+# Commercial use is **not permitted** under the terms of the license.
+#
+# If you wish to use this method in a commercial product or service,
+# please contact the author to discuss licensing terms.
+#
+# Please cite or link to this repository if using Q(t) in derivative works or publications:
+# https://github.com/dterrero/q_collapse_mayfield
+# ------------------------------------------------------------------------------
+
+
+
 import h5py
 import numpy as np
 import matplotlib.pyplot as plt

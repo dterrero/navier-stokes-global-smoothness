@@ -18,6 +18,8 @@ presented to demonstrate proof-of-concept only — not as an operational forecas
 
 ---
 
+If using this repository in research or publications, please include the citation below.
+
 @misc{terrero2025qt,
   author       = {Dickson A. Terrero},
   title        = {Q(t) Collapse Diagnostics for Atmospheric Coherence Loss},
@@ -25,5 +27,3 @@ presented to demonstrate proof-of-concept only — not as an operational forecas
   note         = {Available at https://github.com/dterrero/herbie_qt_collapse},
   howpublished = {GitHub repository},
 }
-
-If using this repository in research or publications, please include the citation above.

@@ -144,7 +144,7 @@ conda activate nse
 
 # Run main 2D vortex simulation
 python code/coherence_decay_vortex2D.py
-
+```
 
 ## 📖 Citation
 

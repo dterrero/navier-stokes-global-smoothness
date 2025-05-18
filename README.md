@@ -133,6 +133,26 @@ This project is licensed under the **Creative Commons Attribution–NonCommercia
 
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC--BY--NC%204.0-blue.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 
+## 📖 Citation
+
+If you use this project in your research, please cite it as:
+
+> Terrero, D. A. (2025). *Q(t) Collapse Diagnostic — Herbie Case Study (Mayfield Tornado)* [Software]. Zenodo. https://doi.org/10.5281/zenodo.15460288
+
+Or in BibTeX format:
+
+```bibtex
+@misc{terrero2025qt,
+  author       = {Dickson A. Terrero},
+  title        = {Q(t) Collapse Diagnostic — Herbie Case Study (Mayfield Tornado)},
+  year         = {2025},
+  doi          = {10.5281/zenodo.15460288},
+  url          = {https://doi.org/10.5281/zenodo.15460288},
+  howpublished = {Zenodo},
+  note         = {Structural collapse detection using Q(t) and HRRR data from the Mayfield, KY tornado case (2021).}
+}
+
+
 
 ```bash
 # Clone the repository

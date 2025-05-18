@@ -29,7 +29,7 @@ If using this repository in research or publications, please include the citatio
   author       = {Dickson A. Terrero},
   title        = {Q(t) Collapse Diagnostics for Atmospheric Coherence Loss},
   year         = {2025},
-  note         = {Available at https://github.com/dterrero/herbie_qt_collapse},
+  note         = {Available at https://github.com/dterrero/navier-stokes-global-smoothness/tree/main/herbie_qt_collapse},
   howpublished = {GitHub repository}
 }
 

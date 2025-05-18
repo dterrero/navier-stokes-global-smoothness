@@ -121,6 +121,17 @@ Higher resolution accelerates spectral misalignment by resolving finer-scale ins
 
 ## Quick Start
 
+## 📄 License and Usage
+
+This project is licensed under the **Creative Commons Attribution–NonCommercial 4.0 International License (CC BY-NC 4.0)**.
+
+- 🔒 **Non-commercial use only** — This repository, including all code, theory, and visualizations, is intended for educational and research purposes.
+- 💼 **Commercial use is not permitted** without prior written permission.
+- 📚 For academic use, please cite this work using the BibTeX entry in the `NOTICE` file or via the Zenodo DOI.
+
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC--BY--NC%204.0-blue.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
+
+
 ```bash
 # Clone the repository
 git clone https://github.com/dterrero/navier-stokes-global-smoothness.git

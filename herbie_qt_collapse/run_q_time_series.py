@@ -1,4 +1,24 @@
-
+# ------------------------------------------------------------------------------
+# run_q_time_series.py
+#
+# Computes the Coherence Quotient Q(t) using velocity gradient data from
+# HRRR reanalysis (Herbie Main). This implementation reflects the theoretical
+# structure described in UTMT-based turbulence diagnostics.
+#
+# Author: Dickson A. Terrero
+# License: MIT (see LICENSE.txt)
+#
+# ----------------------------------------------------------------------
+# ⚠️ Usage Notice:
+# This script and associated formulas are shared for **educational and
+# research purposes only**. While the code is MIT-licensed, the underlying
+# scientific methodology and interpretation (e.g., Q(t) as a predictive
+# collapse metric) remain part of an ongoing research program.
+#
+# Please **do not use for commercial purposes** or misrepresent the method
+# as a finalized forecasting tool. Cite or link to the repository if used
+# in derivative works or publications.
+# ---------------------------------------------
 import numpy as np
 import xarray as xr
 from numpy.fft import fft2, ifft2, fftfreq

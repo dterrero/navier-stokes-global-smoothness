@@ -19,7 +19,7 @@
 # please contact the author to discuss licensing terms.
 #
 # Cite or link to this repository if using Q(t) in derivative works or publications:
-# https://github.com/dterrero/q_collapse_mayfield
+# https://github.com/dterrero/navier-stokes-global-smoothness/tree/main/herbie_qt_collapse
 # ------------------------------------------------------------------------------
 
 import numpy as np

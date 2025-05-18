@@ -6,19 +6,22 @@
 # structure described in UTMT-based turbulence diagnostics.
 #
 # Author: Dickson A. Terrero
-# License: MIT (see LICENSE.txt)
+# License: CC BY-NC 4.0 — Creative Commons Attribution–NonCommercial 4.0
+# https://creativecommons.org/licenses/by-nc/4.0/
 #
 # ----------------------------------------------------------------------
 # ⚠️ Usage Notice:
 # This script and associated formulas are shared for **educational and
-# research purposes only**. While the code is MIT-licensed, the underlying
-# scientific methodology and interpretation (e.g., Q(t) as a predictive
-# collapse metric) remain part of an ongoing research program.
+# research purposes only**. Commercial use is **not permitted** under the
+# terms of the license.
 #
-# Please **do not use for commercial purposes** or misrepresent the method
-# as a finalized forecasting tool. Cite or link to the repository if used
-# in derivative works or publications.
-# ---------------------------------------------
+# If you wish to use this method in a commercial setting or product,
+# please contact the author to discuss licensing terms.
+#
+# Cite or link to this repository if using Q(t) in derivative works or publications:
+# https://github.com/dterrero/q_collapse_mayfield
+# ------------------------------------------------------------------------------
+
 import numpy as np
 import xarray as xr
 from numpy.fft import fft2, ifft2, fftfreq

@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# run_q_time_series.py
+# run_q_time_series_non_clean.py
 #
 # Computes the Coherence Quotient Q(t) using velocity gradient data from
 # HRRR reanalysis (Herbie Main). This implementation reflects the theoretical

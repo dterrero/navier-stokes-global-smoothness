@@ -54,7 +54,7 @@ Where:
 
 ---
 
-## 🧪 Recomputed with improved spatial interpolation and spectral noise removal
+## 🧪 Refined Q(t) Results After Artifact Removal
 
 | Time  | Level (hPa) | Original Q | Cleaned Q | ΔQ     | Comment                |
 |-------|-------------|------------|-----------|--------|------------------------|
@@ -68,13 +68,10 @@ Where:
 | 20:00 | 850         | 0.8159     | 0.8371    | +0.021 | Small but clear boost  |
 | 20:00 | 700         | 0.7555     | 0.7678    | +0.012 | Minimal change         |
 
----
-
 **Original Q**: Coherence Quotient computed using the original diagnostic method  
-**Cleaned Q**: Result after suppressing
+**Cleaned Q**: Result after suppressing spectral artifacts and correcting for edge-based interpolation noise
 
-
-\*Repeated values due to static data at that resolution or interval.
+* Repeated values at 18:00 and 19:00 UTC indicate no update in HRRR fields at this level/time — possibly due to coarse temporal resolution.
 
 These values were generated using `run_q_time_series.py` and processed from the file `hrrr_mayfield_850winds.nc`.
 

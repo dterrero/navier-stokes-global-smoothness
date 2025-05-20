@@ -3,7 +3,7 @@
 #
 # Computes the Coherence Quotient Q(t) using velocity gradient data from
 # HRRR reanalysis (Herbie Main). This implementation reflects the theoretical
-# structure described in UTMT-based turbulence diagnostics.
+# structure described in EUM-based turbulence diagnostics.
 #
 # Author: Dickson A. Terrero
 # License: CC BY-NC 4.0 — Creative Commons Attribution–NonCommercial 4.0

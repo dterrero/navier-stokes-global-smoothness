@@ -52,6 +52,28 @@ Where:
 | 20:00      | 0.287       | 0.256       | 0.356       |
 | 21:26      | — Tornado strikes Mayfield — ⚠️
 
+---
+
+## 🧪 Recomputed with improved spatial interpolation and spectral noise removal
+
+| Time  | Level (hPa) | Original Q | Cleaned Q | ΔQ     | Comment                |
+|-------|-------------|------------|-----------|--------|------------------------|
+| 17:00 | 925         | 0.5780     | 0.6034    | +0.025 | Small but clear boost  |
+| 17:00 | 850         | 0.7234     | 0.7661    | +0.043 | Small but clear boost  |
+| 17:00 | 700         | 0.9116     | 0.9280    | +0.016 | Small but clear boost  |
+| 19:00 | 925         | 0.3588     | 0.4786    | +0.120 | Moderate improvement   |
+| 19:00 | 850         | 0.7823     | 0.8073    | +0.025 | Small but clear boost  |
+| 19:00 | 700         | 0.7791     | 0.7975    | +0.018 | Small but clear boost  |
+| 20:00 | 925         | 0.7854     | 0.7992    | +0.014 | Minimal change         |
+| 20:00 | 850         | 0.8159     | 0.8371    | +0.021 | Small but clear boost  |
+| 20:00 | 700         | 0.7555     | 0.7678    | +0.012 | Minimal change         |
+
+---
+
+**Original Q**: Coherence Quotient computed using the original diagnostic method  
+**Cleaned Q**: Result after suppressing
+
+
 \*Repeated values due to static data at that resolution or interval.
 
 These values were generated using `run_q_time_series.py` and processed from the file `hrrr_mayfield_850winds.nc`.

@@ -23,17 +23,24 @@
 # ------------------------------------------------------------------------------
 
 import numpy as np
+import xarray as xr
 from numpy.fft import fft2, ifft2, fftfreq
 from scipy.interpolate import RegularGridInterpolator
+
+# === Load HRRR Dataset ===
+ds = xr.open_dataset("hrrr_mayfield_full.nc")
+
+# Normalize longitudes if necessary
+if ds.longitude.max() > 180:
+    ds = ds.assign_coords(longitude=ds.longitude.where(ds.longitude <= 180, ds.longitude - 360))
 
 def run_q_diagnostic_cleaned(ds, time_exact, level, lat_min, lat_max, lon_min, lon_max, kc):
     try:
         ds_slice = ds.sel(time=np.datetime64(time_exact))
     except KeyError:
         print(f"⚠️ Time {time_exact} not found in dataset.")
-        return
+        return None
 
-    # Choose level with tighter control
     ds_slice = ds_slice.sel(isobaricInhPa=level, method="nearest")
 
     u = ds_slice['u'].values
@@ -42,22 +49,19 @@ def run_q_diagnostic_cleaned(ds, time_exact, level, lat_min, lat_max, lon_min, l
     lon = ds_slice['longitude'].values
 
     npts = 64
-    lat_new = np.linspace(lat_min, lat_max, npts + 8)[4:-4]  # add buffer to reduce edge effects
+    lat_new = np.linspace(lat_min, lat_max, npts + 8)[4:-4]
     lon_new = np.linspace(lon_min, lon_max, npts + 8)[4:-4]
     lat_grid, lon_grid = np.meshgrid(lat_new, lon_new, indexing='ij')
     points = np.column_stack((lat_grid.ravel(), lon_grid.ravel()))
 
     u_interp = RegularGridInterpolator((lat[:, 0], lon[0, :]), u, bounds_error=False, fill_value=np.nan)
     v_interp = RegularGridInterpolator((lat[:, 0], lon[0, :]), v, bounds_error=False, fill_value=np.nan)
-
     u_grid = u_interp(points).reshape((npts, npts))
     v_grid = v_interp(points).reshape((npts, npts))
 
-    # Mask NaNs introduced by boundary gaps
-    mask_valid = ~np.isnan(u_grid) & ~np.isnan(v_grid)
-    if not np.all(mask_valid):
-        print("⚠️ Skipping step due to missing values after interpolation.")
-        return
+    if np.any(np.isnan(u_grid)) or np.any(np.isnan(v_grid)):
+        print("⚠️ Skipping due to NaNs after interpolation.")
+        return None
 
     vel = np.stack([u_grid, v_grid], axis=-1)
     dy = np.nanmean(np.abs(np.diff(lat_grid, axis=0)))
@@ -68,7 +72,6 @@ def run_q_diagnostic_cleaned(ds, time_exact, level, lat_min, lat_max, lon_min, l
         for j, spacing in enumerate([dy, dx]):
             grad_u[..., i, j] = np.gradient(vel[..., i], spacing, axis=j)
 
-    # === Filtering high-frequency filamentary noise ===
     KX = fftfreq(npts, d=dx) * 2 * np.pi
     KY = fftfreq(npts, d=dy) * 2 * np.pi
     KX, KY = np.meshgrid(KX, KY)
@@ -80,17 +83,19 @@ def run_q_diagnostic_cleaned(ds, time_exact, level, lat_min, lat_max, lon_min, l
         for j in range(2):
             f_hat = fft2(grad_u[..., i, j])
             f_hat_filtered = f_hat * filter_mask
-
-            # Soft noise reduction: remove small-magnitude noise
             threshold = 0.01 * np.max(np.abs(f_hat_filtered))
             f_hat_filtered[np.abs(f_hat_filtered) < threshold] = 0
-
             grad_A[..., i, j] = np.real(ifft2(f_hat_filtered))
 
     dot = np.sum(grad_u * grad_A)
     norm_grad_u = np.linalg.norm(grad_u)
     norm_A = np.linalg.norm(grad_A)
-    Q = dot / (norm_grad_u * norm_A + 1e-10) if norm_grad_u > 1e-10 and norm_A > 1e-10 else 1.0
+
+    if norm_grad_u < 1e-10 or norm_A < 1e-10:
+        print("⚠️ Degenerate norms — skipping Q.")
+        return None
+
+    Q = dot / (norm_grad_u * norm_A + 1e-10)
     KE = 0.5 * np.sum(u_grid**2 + v_grid**2)
 
     print(f"\n🧠 Q(t) Diagnostic (Cleaned) — {time_exact} — {level} hPa")
@@ -98,4 +103,10 @@ def run_q_diagnostic_cleaned(ds, time_exact, level, lat_min, lat_max, lon_min, l
     print(f"Q(t) = {Q:.6f}  | KE = {KE:.2f}")
     print(f"‖∇u‖ = {norm_grad_u:.2e},  ‖A‖ = {norm_A:.2e},  ⟨∇u, A⟩ = {dot:.2e}")
 
+    return Q
 
+# === Loop Over Time and Levels ===
+for t in ["2021-12-10T17:00:00", "2021-12-10T19:00:00", "2021-12-10T20:00:00"]:
+    for lev in [925, 850, 700]:
+        print(f"\n=== {t} | {lev} hPa ===")
+        q_cln = run_q_diagnostic_cleaned(ds, t, lev, 36.6, 37.0, -89.5, -89.0, kc=10)

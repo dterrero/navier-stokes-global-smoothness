@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# run_q_time_series_original_vs_artifacts_removal.py
+# run_q_time_series_with_artifacts_removal.py
 #
 # Computes the Coherence Quotient Q(t) using velocity gradient data from
 # HRRR reanalysis (Herbie Main). This implementation reflects the theoretical

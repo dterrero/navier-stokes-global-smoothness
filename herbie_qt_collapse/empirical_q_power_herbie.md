@@ -52,7 +52,6 @@ Where:
 | 20:00      | 0.287       | 0.256       | 0.356       |
 | 21:26      | — Tornado strikes Mayfield — ⚠️
 
----
 
 ## 🧪 Refined Q(t) Results After Artifact Removal
 

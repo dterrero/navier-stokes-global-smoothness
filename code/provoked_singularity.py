@@ -14,9 +14,6 @@
 #
 # If you wish to use this method in a commercial product or service,
 # please contact the author to discuss licensing terms.
-#
-# Please cite or link to this repository if using Q(t) in derivative works or publications:
-# https://github.com/dterrero/q_collapse_mayfield
 # ------------------------------------------------------------------------------
 
 

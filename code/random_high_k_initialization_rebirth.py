@@ -21,7 +21,6 @@
 # please contact the author to discuss licensing terms.
 #
 # Please cite or link to this repository if using Q(t) in derivative works or publications:
-# https://github.com/dterrero/q_collapse_mayfield
 # ------------------------------------------------------------------------------
 
 import numpy as np
